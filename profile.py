@@ -10,10 +10,10 @@ pc = portal.Context()
 portal.context.defineParameter( "n", "Number of VMs", portal.ParameterType.INTEGER, 1)
 
 # Retrieves the values the user inputs // section 8.8
-usr = portal.context.bindParameters() 
+usr = portal.bindParameters() 
 
 # Create a Request object to start building the RSpec
-request = pc.context.makeRequestRSpec()
+request = pc.makeRequestRSpec()
  
 link = request.LAN("lan")
  
@@ -25,9 +25,9 @@ if usr.n <1 or usr.n >4:
 for i in range(usr.n):
     node = request.XenVM("node-" + str(i+1)) # Creates number of nodes
     node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:CENTOS7-64-STD"
-    intf = node.addInterface("iface"+str(i+1))
+    intf = node.addInterface("iface")
     intf.component_id = "eth"
-    intf.addAddress(pc.IPv4Address("192.168.1."+str(i+1), "255.255.255.0")) # Sets each of the nodes to have their respected IP address
+    intf.addAddress(rspec.IPv4Address("192.168.1."+str(i+1), "255.255.255.0")) # Sets each of the nodes to have their respected IP address
     link.addInterface(intf)             
     if (i+1) == 1:
           node.routable_control_ip = "true" # sets node-1 to have a public ID

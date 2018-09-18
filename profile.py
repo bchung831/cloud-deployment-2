@@ -29,7 +29,7 @@ for i in range(usr.n):
     intf.component_id = "eth"
     intf.addAddress(rspec.IPv4Address("192.168.1."+str(i+1), "255.255.255.0")) # Sets each of the nodes to have their respected IP address
     link.addInterface(intf)             
-    if (i+1) == 1
+    if (i+1) == 1:
           node.routable_control_ip = "true" # sets node-1 to have a public ID
     
 # Print the RSpec to the enclosing page.

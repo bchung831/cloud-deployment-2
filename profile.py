@@ -4,7 +4,7 @@ import geni.portal as portal
 import geni.rspec.pg as pg
 
 # Create a portal context.
-pc = portal.Context()
+#pc = portal.Context()
 
 # Describes the parameters
 portal.context.defineParameter( "n", "Number of VMs", portal.ParameterType.INTEGER, 1) 
@@ -13,7 +13,7 @@ portal.context.defineParameter( "n", "Number of VMs", portal.ParameterType.INTEG
 params = portal.context.makeRequestRSpec()
 
 # Create a Request object to start building the RSpec.
-request = pc.makeRequestRSpec()
+request = portal.context.makeRequestRSpec()
 
 # Prints out an error is user inputs an invalid value
 if params.n < 1 or params.n >8:
@@ -35,4 +35,4 @@ for i in range(params.n):
 node.addService(pg.Execute(shell="sh", command="/local/repository/silly.sh"))
 
 # Print the RSpec to the enclosing page.
-portal.printRequestRSpec(request)
+portal.context.printRequestRSpec()

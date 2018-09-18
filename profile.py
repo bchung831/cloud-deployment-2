@@ -10,15 +10,15 @@ pc = portal.Context()
 request = pc.makeRequestRSpec()
  
 # Creates number of nodes specified by the user and also sets node-1 to have a public ID address
-for i in range(params.n):
+for i in range(4):
     node = request.XenVM("node-" + str(i))  
 
 # Sets each node to run CentOS7-64-STD
-for i in range(params.n):
+for i in range(4):
     node.disk_image = "urn:publicide:IDN+emulab.net+image+emulab-ops:CENTOS7-64-STD"
 
 # Sets each node to have their respected local IP address
-for i in range(params.n):
+for i in range(4):
     node+str(i).addAddress(rspec.IPv4Address("192.168.1."+str(i), "255.255.255.0"))
 
 # Install and execute a script that is contained in the repository.

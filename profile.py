@@ -7,7 +7,7 @@ import geni.rspec.pg as pg
 pc = portal.Context()
 
 # Describes the parameters // section 8.8
-portal.context.defineParameter( "n", "Number of VMs", portal.ParametreType.Integer, 1)
+portal.context.defineParameter( "n", "Number of VMs", portal.ParameterType.Integer, 1)
 
 # Retrieves the values the user inputs // section 8.8
 usr = portal.context.bindParameters() 

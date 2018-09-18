@@ -21,9 +21,7 @@ if params.n < 1 or params.n >8:
  
 # Creates number of nodes specified by the user and also sets node-1 to have a public ID address
 for i in range(params.n):
-    node = request.XenVM("node-" + str(i))
-
-node-1.routable_control_ip = "true"    
+    node = request.XenVM("node-" + str(i))  
 
 # Sets each node to run CentOS7-64-STD
 for i in range(params.n):

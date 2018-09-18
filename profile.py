@@ -27,7 +27,7 @@ for i in range(usr.n):
     node.disk_image = "urn:publicid:IDN+emulab.net+image+emulab-ops:CENTOS7-64-STD"
     intf = node.addInterface("iface"+str(i+1))
     intf.component_id = "eth"
-    intf.addAddress(rspec.IPv4Address("192.168.1."+str(i+1), "255.255.255.0")) # Sets each of the nodes to have their respected IP address
+    intf.addAddress(pc.IPv4Address("192.168.1."+str(i+1), "255.255.255.0")) # Sets each of the nodes to have their respected IP address
     link.addInterface(intf)             
     if (i+1) == 1:
           node.routable_control_ip = "true" # sets node-1 to have a public ID

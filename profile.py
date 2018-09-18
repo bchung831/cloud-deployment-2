@@ -1,7 +1,7 @@
 # Import the Portal object.
 import geni.portal as portal
 # Import the ProtoGENI library.
-import geni.rspec.pg as pg
+import geni.rspec.pg as respec
 
 # Create a portal context
 pc = portal.Context()
@@ -33,4 +33,4 @@ for i in range(usr.n):
           node.routable_control_ip = "true" # sets node-1 to have a public ID
     
 # Print the RSpec to the enclosing page.
-pc.printRequestRSpec(request)
+pc.printRequestRSpec()

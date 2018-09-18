@@ -4,20 +4,10 @@ import geni.portal as portal
 import geni.rspec.pg as pg
 
 # Create a portal context.
-#pc = portal.Context()
+pc = portal.Context()
 
-# Describes the parameters
-portal.context.defineParameter( "n", "Number of VMs", portal.ParameterType.INTEGER, 1) 
-
-# Retrieves the user value
-params = portal.context.makeRequestRSpec()
-
-# Create a Request object to start building the RSpec.
-request = portal.context.makeRequestRSpec()
-
-# Prints out an error is user inputs an invalid value
-if params.n < 1 or params.n >8:
-    portal.context.reportError( portal.ParameterError( "Number of VMs is incorrect. Must be between 1 and 8")) 
+# Create a Request object to start building the RSpec
+request = pc.makeRequestRSpec()
  
 # Creates number of nodes specified by the user and also sets node-1 to have a public ID address
 for i in range(params.n):
@@ -35,4 +25,4 @@ for i in range(params.n):
 node.addService(pg.Execute(shell="sh", command="/local/repository/silly.sh"))
 
 # Print the RSpec to the enclosing page.
-portal.context.printRequestRSpec()
+pc.printRequestRSpec()

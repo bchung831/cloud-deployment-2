@@ -15,11 +15,11 @@ usr = portal.context.bindParameters()
 # Create a Request object to start building the RSpec
 request = pc.makeRequestRSpec()
  
+link = request.LAN("lan")
+ 
 # Presents and error to the user if the value is not within the boundary // section 8.8
 if usr.n <1 or usr.n >4: 
     pc.reportError( portal.ParameterError("Value inputed must be between 1 and 4")
-                   
-link = request.LAN("lan")
                           
 # Creates number of nodes specified by the user 
 for i in range(usr.n):
